@@ -83,18 +83,18 @@ class RobotLegPublisher:
         self.pub_BRH_thigh.publish(math.radians(BRH_servos[1].getTargetDegree()))
         self.pub_BRH_tibia.publish(math.radians(BRH_servos[2].getTargetDegree()))
         
-        self.pub_TLF_base_clause.publish(math.radians(BLF_servos[0].getTargetDegree()))
-        self.pub_TLF_thigh.publish(math.radians(BLF_servos[1].getTargetDegree()))
-        self.pub_TLF_tibia.publish(math.radians(BLF_servos[2].getTargetDegree()))
-        self.pub_TLH_base_clause.publish(math.radians(BLH_servos[0].getTargetDegree()))
-        self.pub_TLH_thigh.publish(math.radians(BLH_servos[1].getTargetDegree()))
-        self.pub_TLH_tibia.publish(math.radians(BLH_servos[2].getTargetDegree()))
-        self.pub_TRF_base_clause.publish(math.radians(BRF_servos[0].getTargetDegree()))
-        self.pub_TRF_thigh.publish(math.radians(BRF_servos[1].getTargetDegree()))
-        self.pub_TRF_tibia.publish(math.radians(BRF_servos[2].getTargetDegree()))
-        self.pub_TRH_base_clause.publish(math.radians(BRH_servos[0].getTargetDegree()))
-        self.pub_TRH_thigh.publish(math.radians(BRH_servos[1].getTargetDegree()))
-        self.pub_TRH_tibia.publish(math.radians(BRH_servos[2].getTargetDegree()))
+        self.pub_TLF_base_clause.publish(math.radians(TLF_servos[0].getTargetDegree()))
+        self.pub_TLF_thigh.publish(math.radians(TLF_servos[1].getTargetDegree()))
+        self.pub_TLF_tibia.publish(math.radians(TLF_servos[2].getTargetDegree()))
+        self.pub_TLH_base_clause.publish(math.radians(TLH_servos[0].getTargetDegree()))
+        self.pub_TLH_thigh.publish(math.radians(TLH_servos[1].getTargetDegree()))
+        self.pub_TLH_tibia.publish(math.radians(TLH_servos[2].getTargetDegree()))
+        self.pub_TRF_base_clause.publish(math.radians(TRF_servos[0].getTargetDegree()))
+        self.pub_TRF_thigh.publish(math.radians(TRF_servos[1].getTargetDegree()))
+        self.pub_TRF_tibia.publish(math.radians(TRF_servos[2].getTargetDegree()))
+        self.pub_TRH_base_clause.publish(math.radians(TRH_servos[0].getTargetDegree()))
+        self.pub_TRH_thigh.publish(math.radians(TRH_servos[1].getTargetDegree()))
+        self.pub_TRH_tibia.publish(math.radians(TRH_servos[2].getTargetDegree()))
 
 class flagInterface:
     def __init__(self):
@@ -179,48 +179,76 @@ if __name__ == '__main__':
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
     BLF_leg = leg.Leg(*BLF_servos)
+    BLF_leg.setLegType("BLF")
     BLF_leg.setLinkLength([0, LF_LINK1_LENGTH, LF_LINK2_LENGTH, LF_LINK3_LENGTH])
     BLF_leg.setAxis([LF_AXIS_1, LF_AXIS_2, LF_AXIS_3])
-
     ## BLH
     BLH_servos = [
         servo.ServoMotor(), 
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
+    BLH_leg = leg.Leg(*BLH_servos)
+    BLH_leg.setLegType("BLH")
+    BLH_leg.setLinkLength([0, LH_LINK1_LENGTH, LH_LINK2_LENGTH, LH_LINK3_LENGTH])
+    BLH_leg.setAxis([LH_AXIS_1, LH_AXIS_2, LH_AXIS_3])
     ## BRF
     BRF_servos = [
         servo.ServoMotor(), 
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
+    BRF_leg = leg.Leg(*BRF_servos)
+    BRF_leg.setLegType("BRF")
+    BRF_leg.setLinkLength([0, RF_LINK1_LENGTH, RF_LINK2_LENGTH, RF_LINK3_LENGTH])
+    BRF_leg.setAxis([RF_AXIS_1, RF_AXIS_2, RF_AXIS_3])
     ## BRH
     BRH_servos = [
         servo.ServoMotor(), 
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
+    BRH_leg = leg.Leg(*BRH_servos)
+    BRH_leg.setLegType("BRH")
+    BRH_leg.setLinkLength([0, RH_LINK1_LENGTH, RH_LINK2_LENGTH, RH_LINK3_LENGTH])
+    BRH_leg.setAxis([RH_AXIS_1, RH_AXIS_2, RH_AXIS_3])
     ## TLF
     TLF_servos = [
         servo.ServoMotor(), 
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
+    TLF_leg = leg.Leg(*TLF_servos)
+    TLF_leg.setLegType("TLF")
+    TLF_leg.setLinkLength([0, LF_LINK1_LENGTH, LF_LINK2_LENGTH, LF_LINK3_LENGTH])
+    TLF_leg.setAxis([LF_AXIS_1, LF_AXIS_2, LF_AXIS_3])
     ## TLH
     TLH_servos = [
         servo.ServoMotor(), 
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
+    TLH_leg = leg.Leg(*TLH_servos)
+    TLH_leg.setLegType("TLH")
+    TLH_leg.setLinkLength([0, LH_LINK1_LENGTH, LH_LINK2_LENGTH, LH_LINK3_LENGTH])
+    TLH_leg.setAxis([LH_AXIS_1, LH_AXIS_2, LH_AXIS_3])
     ## TRF
     TRF_servos = [
         servo.ServoMotor(), 
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
+    TRF_leg = leg.Leg(*TRF_servos)
+    TRF_leg.setLegType("TRF")
+    TRF_leg.setLinkLength([0, RF_LINK1_LENGTH, RF_LINK2_LENGTH, RF_LINK3_LENGTH])
+    TRF_leg.setAxis([RF_AXIS_1, RF_AXIS_2, RF_AXIS_3])
     ## TRH
     TRH_servos = [
         servo.ServoMotor(), 
         servo.ServoMotor(), 
         servo.ServoMotor(), ]
+    TRH_leg = leg.Leg(*TRH_servos)
+    TRH_leg.setLegType("TRH")
+    TRH_leg.setLinkLength([0, RH_LINK1_LENGTH, RH_LINK2_LENGTH, RH_LINK3_LENGTH])
+    TRH_leg.setAxis([RH_AXIS_1, RH_AXIS_2, RH_AXIS_3])
 
     rospy.init_node('lily_octpus_walk', anonymous=True)
 
-    RATE = 100
+    RATE = 30
     print("RATE")
     print(RATE)
     r = rospy.Rate(RATE) # hz
@@ -244,36 +272,256 @@ if __name__ == '__main__':
             servos[i].setTargetDegree(list_degrees[i][0])
 
     deg1 = 0
-    deg2 = -60
+    deg2 = -80
     deg3 = 120
+    deg4 = 45
+    deg5 = -135
     setServoDeg(BLF_servos, [[deg1],[deg2],[deg3]])
     setServoDeg(BLH_servos, [[deg1],[deg2],[deg3]])
     setServoDeg(BRF_servos, [[deg1],[deg2],[deg3]])
     setServoDeg(BRH_servos, [[deg1],[deg2],[deg3]])
-    setServoDeg(TLF_servos, [[deg1],[deg2],[deg3]])
-    setServoDeg(TLH_servos, [[deg1],[deg2],[deg3]])
-    setServoDeg(TRF_servos, [[deg1],[deg2],[deg3]])
-    setServoDeg(TRH_servos, [[deg1],[deg2],[deg3]])
+    setServoDeg(TLF_servos, [[deg1],[deg4],[deg5]])
+    setServoDeg(TLH_servos, [[deg1],[deg4],[deg5]])
+    setServoDeg(TRF_servos, [[deg1],[deg4],[deg5]])
+    setServoDeg(TRH_servos, [[deg1],[deg4],[deg5]])
     # 脚に対してサーボユニット情報を更新
     BLF_leg.setupNowTheta()
+    BLH_leg.setupNowTheta()
+    BRF_leg.setupNowTheta()
+    BRH_leg.setupNowTheta()
+    TLF_leg.setupNowTheta()
+    TLH_leg.setupNowTheta()
+    TRF_leg.setupNowTheta()
+    TRH_leg.setupNowTheta()
 
+    pub_pose()
+    rospy.sleep(1)
     pub_pose()
     rospy.sleep(1)
 
     # 脚座標系で目標座標を分割して計算
-    start_pose = BLF_leg.getEndEfectorPose()
-    print(start_pose)
-    target_pose = Matrix([[0.12], [0.01], [-0.10]])
-    max_step = 10
-    for step in range(max_step):
-        tar_pose_matrix = (target_pose - start_pose) * (float(step + 1) /  float(max_step)) + start_pose
-        BLF_leg.calcServosDeg(tar_pose_matrix - BLF_leg.getEndEfectorPose())
+    while True:
+        up_dist = 0.2
+        start_pose_BLF = BLF_leg.getEndEfectorPose()
+        start_pose_BLH = BLH_leg.getEndEfectorPose()
+        start_pose_BRF = BRF_leg.getEndEfectorPose()
+        start_pose_BRH = BRH_leg.getEndEfectorPose()
+        start_pose_TLF = TLF_leg.getEndEfectorPose()
+        start_pose_TLH = TLH_leg.getEndEfectorPose()
+        start_pose_TRF = TRF_leg.getEndEfectorPose()
+        start_pose_TRH = TRH_leg.getEndEfectorPose()
+        target_pose_BLF = start_pose_BLF + Matrix([[0.0], [0], [-up_dist]])
+        target_pose_BLH = start_pose_BLH + Matrix([[0.0], [0], [-up_dist]])
+        target_pose_BRF = start_pose_BRF + Matrix([[0.0], [0], [-up_dist]])
+        target_pose_BRH = start_pose_BRH + Matrix([[0.0], [0], [-up_dist]])
+        target_pose_TLF = start_pose_TLF + Matrix([[0.0], [0], [up_dist]])
+        target_pose_TLH = start_pose_TLH + Matrix([[0.0], [0], [up_dist]])
+        target_pose_TRF = start_pose_TRF + Matrix([[0.0], [0], [up_dist]])
+        target_pose_TRH = start_pose_TRH + Matrix([[0.0], [0], [up_dist]])
+        max_step = 60
+        for step in range(max_step):
+            tar_pose_matrix_BLF = (target_pose_BLF - start_pose_BLF) * (float(step + 1) /  float(max_step)) + start_pose_BLF
+            tar_pose_matrix_BLH = (target_pose_BLH - start_pose_BLH) * (float(step + 1) /  float(max_step)) + start_pose_BLH
+            tar_pose_matrix_BRF = (target_pose_BRF - start_pose_BRF) * (float(step + 1) /  float(max_step)) + start_pose_BRF
+            tar_pose_matrix_BRH = (target_pose_BRH - start_pose_BRH) * (float(step + 1) /  float(max_step)) + start_pose_BRH
+            tar_pose_matrix_TLF = (target_pose_TLF - start_pose_TLF) * (float(step + 1) /  float(max_step)) + start_pose_TLF
+            tar_pose_matrix_TLH = (target_pose_TLH - start_pose_TLH) * (float(step + 1) /  float(max_step)) + start_pose_TLH
+            tar_pose_matrix_TRF = (target_pose_TRF - start_pose_TRF) * (float(step + 1) /  float(max_step)) + start_pose_TRF
+            tar_pose_matrix_TRH = (target_pose_TRH - start_pose_TRH) * (float(step + 1) /  float(max_step)) + start_pose_TRH
+            BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+            BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+            BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+            BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+            TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+            TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+            TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+            TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
+            pub_pose()
+            r.sleep()
+        tar_pose_matrix_BLF = target_pose_BLF
+        tar_pose_matrix_BLH = target_pose_BLH
+        tar_pose_matrix_BRF = target_pose_BRF
+        tar_pose_matrix_BRH = target_pose_BRH
+        tar_pose_matrix_TLF = target_pose_TLF
+        tar_pose_matrix_TLH = target_pose_TLH
+        tar_pose_matrix_TRF = target_pose_TRF
+        tar_pose_matrix_TRH = target_pose_TRH
+        BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+        BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+        BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+        BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+        TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+        TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+        TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+        TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
         pub_pose()
-        rospy.sleep(0.1)
-    tar_pose_matrix = target_pose
-    BLF_leg.calcServosDeg(tar_pose_matrix - BLF_leg.getEndEfectorPose())
-    pub_pose()
-    rospy.sleep(0.1)
+        r.sleep()
+
+        x_dist = 0.1
+        start_pose_BLF = BLF_leg.getEndEfectorPose()
+        start_pose_BLH = BLH_leg.getEndEfectorPose()
+        start_pose_BRF = BRF_leg.getEndEfectorPose()
+        start_pose_BRH = BRH_leg.getEndEfectorPose()
+        start_pose_TLF = TLF_leg.getEndEfectorPose()
+        start_pose_TLH = TLH_leg.getEndEfectorPose()
+        start_pose_TRF = TRF_leg.getEndEfectorPose()
+        start_pose_TRH = TRH_leg.getEndEfectorPose()
+        target_pose_BLF = start_pose_BLF + Matrix([[-x_dist], [0], [0]])
+        target_pose_BLH = start_pose_BLH + Matrix([[-x_dist], [0], [0]])
+        target_pose_BRF = start_pose_BRF + Matrix([[-x_dist], [0], [0]])
+        target_pose_BRH = start_pose_BRH + Matrix([[-x_dist], [0], [0]])
+        target_pose_TLF = start_pose_TLF + Matrix([[-x_dist], [0], [0]])
+        target_pose_TLH = start_pose_TLH + Matrix([[-x_dist], [0], [0]])
+        target_pose_TRF = start_pose_TRF + Matrix([[-x_dist], [0], [0]])
+        target_pose_TRH = start_pose_TRH + Matrix([[-x_dist], [0], [0]])
+        max_step = 60
+        for step in range(max_step):
+            tar_pose_matrix_BLF = (target_pose_BLF - start_pose_BLF) * (float(step + 1) /  float(max_step)) + start_pose_BLF
+            tar_pose_matrix_BLH = (target_pose_BLH - start_pose_BLH) * (float(step + 1) /  float(max_step)) + start_pose_BLH
+            tar_pose_matrix_BRF = (target_pose_BRF - start_pose_BRF) * (float(step + 1) /  float(max_step)) + start_pose_BRF
+            tar_pose_matrix_BRH = (target_pose_BRH - start_pose_BRH) * (float(step + 1) /  float(max_step)) + start_pose_BRH
+            tar_pose_matrix_TLF = (target_pose_TLF - start_pose_TLF) * (float(step + 1) /  float(max_step)) + start_pose_TLF
+            tar_pose_matrix_TLH = (target_pose_TLH - start_pose_TLH) * (float(step + 1) /  float(max_step)) + start_pose_TLH
+            tar_pose_matrix_TRF = (target_pose_TRF - start_pose_TRF) * (float(step + 1) /  float(max_step)) + start_pose_TRF
+            tar_pose_matrix_TRH = (target_pose_TRH - start_pose_TRH) * (float(step + 1) /  float(max_step)) + start_pose_TRH
+            BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+            BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+            BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+            BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+            TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+            TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+            TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+            TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
+            pub_pose()
+            r.sleep()
+        tar_pose_matrix_BLF = target_pose_BLF
+        tar_pose_matrix_BLH = target_pose_BLH
+        tar_pose_matrix_BRF = target_pose_BRF
+        tar_pose_matrix_BRH = target_pose_BRH
+        tar_pose_matrix_TLF = target_pose_TLF
+        tar_pose_matrix_TLH = target_pose_TLH
+        tar_pose_matrix_TRF = target_pose_TRF
+        tar_pose_matrix_TRH = target_pose_TRH
+        BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+        BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+        BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+        BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+        TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+        TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+        TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+        TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
+        pub_pose()
+        r.sleep()
+
+        start_pose_BLF = BLF_leg.getEndEfectorPose()
+        start_pose_BLH = BLH_leg.getEndEfectorPose()
+        start_pose_BRF = BRF_leg.getEndEfectorPose()
+        start_pose_BRH = BRH_leg.getEndEfectorPose()
+        start_pose_TLF = TLF_leg.getEndEfectorPose()
+        start_pose_TLH = TLH_leg.getEndEfectorPose()
+        start_pose_TRF = TRF_leg.getEndEfectorPose()
+        start_pose_TRH = TRH_leg.getEndEfectorPose()
+        target_pose_BLF = start_pose_BLF + Matrix([[x_dist], [0], [0]])
+        target_pose_BLH = start_pose_BLH + Matrix([[x_dist], [0], [0]])
+        target_pose_BRF = start_pose_BRF + Matrix([[x_dist], [0], [0]])
+        target_pose_BRH = start_pose_BRH + Matrix([[x_dist], [0], [0]])
+        target_pose_TLF = start_pose_TLF + Matrix([[x_dist], [0], [0]])
+        target_pose_TLH = start_pose_TLH + Matrix([[x_dist], [0], [0]])
+        target_pose_TRF = start_pose_TRF + Matrix([[x_dist], [0], [0]])
+        target_pose_TRH = start_pose_TRH + Matrix([[x_dist], [0], [0]])
+        max_step = 60
+        for step in range(max_step):
+            tar_pose_matrix_BLF = (target_pose_BLF - start_pose_BLF) * (float(step + 1) /  float(max_step)) + start_pose_BLF
+            tar_pose_matrix_BLH = (target_pose_BLH - start_pose_BLH) * (float(step + 1) /  float(max_step)) + start_pose_BLH
+            tar_pose_matrix_BRF = (target_pose_BRF - start_pose_BRF) * (float(step + 1) /  float(max_step)) + start_pose_BRF
+            tar_pose_matrix_BRH = (target_pose_BRH - start_pose_BRH) * (float(step + 1) /  float(max_step)) + start_pose_BRH
+            tar_pose_matrix_TLF = (target_pose_TLF - start_pose_TLF) * (float(step + 1) /  float(max_step)) + start_pose_TLF
+            tar_pose_matrix_TLH = (target_pose_TLH - start_pose_TLH) * (float(step + 1) /  float(max_step)) + start_pose_TLH
+            tar_pose_matrix_TRF = (target_pose_TRF - start_pose_TRF) * (float(step + 1) /  float(max_step)) + start_pose_TRF
+            tar_pose_matrix_TRH = (target_pose_TRH - start_pose_TRH) * (float(step + 1) /  float(max_step)) + start_pose_TRH
+            BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+            BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+            BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+            BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+            TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+            TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+            TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+            TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
+            pub_pose()
+            r.sleep()
+        tar_pose_matrix_BLF = target_pose_BLF
+        tar_pose_matrix_BLH = target_pose_BLH
+        tar_pose_matrix_BRF = target_pose_BRF
+        tar_pose_matrix_BRH = target_pose_BRH
+        tar_pose_matrix_TLF = target_pose_TLF
+        tar_pose_matrix_TLH = target_pose_TLH
+        tar_pose_matrix_TRF = target_pose_TRF
+        tar_pose_matrix_TRH = target_pose_TRH
+        BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+        BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+        BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+        BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+        TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+        TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+        TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+        TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
+        pub_pose()
+        r.sleep()
+
+        start_pose_BLF = BLF_leg.getEndEfectorPose()
+        start_pose_BLH = BLH_leg.getEndEfectorPose()
+        start_pose_BRF = BRF_leg.getEndEfectorPose()
+        start_pose_BRH = BRH_leg.getEndEfectorPose()
+        start_pose_TLF = TLF_leg.getEndEfectorPose()
+        start_pose_TLH = TLH_leg.getEndEfectorPose()
+        start_pose_TRF = TRF_leg.getEndEfectorPose()
+        start_pose_TRH = TRH_leg.getEndEfectorPose()
+        target_pose_BLF = start_pose_BLF + Matrix([[0.0], [0], [up_dist]])
+        target_pose_BLH = start_pose_BLH + Matrix([[0.0], [0], [up_dist]])
+        target_pose_BRF = start_pose_BRF + Matrix([[0.0], [0], [up_dist]])
+        target_pose_BRH = start_pose_BRH + Matrix([[0.0], [0], [up_dist]])
+        target_pose_TLF = start_pose_TLF + Matrix([[0.0], [0], [-up_dist]])
+        target_pose_TLH = start_pose_TLH + Matrix([[0.0], [0], [-up_dist]])
+        target_pose_TRF = start_pose_TRF + Matrix([[0.0], [0], [-up_dist]])
+        target_pose_TRH = start_pose_TRH + Matrix([[0.0], [0], [-up_dist]])
+        max_step = 60
+        for step in range(max_step):
+            tar_pose_matrix_BLF = (target_pose_BLF - start_pose_BLF) * (float(step + 1) /  float(max_step)) + start_pose_BLF
+            tar_pose_matrix_BLH = (target_pose_BLH - start_pose_BLH) * (float(step + 1) /  float(max_step)) + start_pose_BLH
+            tar_pose_matrix_BRF = (target_pose_BRF - start_pose_BRF) * (float(step + 1) /  float(max_step)) + start_pose_BRF
+            tar_pose_matrix_BRH = (target_pose_BRH - start_pose_BRH) * (float(step + 1) /  float(max_step)) + start_pose_BRH
+            tar_pose_matrix_TLF = (target_pose_TLF - start_pose_TLF) * (float(step + 1) /  float(max_step)) + start_pose_TLF
+            tar_pose_matrix_TLH = (target_pose_TLH - start_pose_TLH) * (float(step + 1) /  float(max_step)) + start_pose_TLH
+            tar_pose_matrix_TRF = (target_pose_TRF - start_pose_TRF) * (float(step + 1) /  float(max_step)) + start_pose_TRF
+            tar_pose_matrix_TRH = (target_pose_TRH - start_pose_TRH) * (float(step + 1) /  float(max_step)) + start_pose_TRH
+            BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+            BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+            BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+            BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+            TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+            TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+            TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+            TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
+            pub_pose()
+            r.sleep()
+        tar_pose_matrix_BLF = target_pose_BLF
+        tar_pose_matrix_BLH = target_pose_BLH
+        tar_pose_matrix_BRF = target_pose_BRF
+        tar_pose_matrix_BRH = target_pose_BRH
+        tar_pose_matrix_TLF = target_pose_TLF
+        tar_pose_matrix_TLH = target_pose_TLH
+        tar_pose_matrix_TRF = target_pose_TRF
+        tar_pose_matrix_TRH = target_pose_TRH
+        BLF_leg.calcServosDeg(tar_pose_matrix_BLF - BLF_leg.getEndEfectorPose())
+        BLH_leg.calcServosDeg(tar_pose_matrix_BLH - BLH_leg.getEndEfectorPose())
+        BRF_leg.calcServosDeg(tar_pose_matrix_BRF - BRF_leg.getEndEfectorPose())
+        BRH_leg.calcServosDeg(tar_pose_matrix_BRH - BRH_leg.getEndEfectorPose())
+        TLF_leg.calcServosDeg(tar_pose_matrix_TLF - TLF_leg.getEndEfectorPose())
+        TLH_leg.calcServosDeg(tar_pose_matrix_TLH - TLH_leg.getEndEfectorPose())
+        TRF_leg.calcServosDeg(tar_pose_matrix_TRF - TRF_leg.getEndEfectorPose())
+        TRH_leg.calcServosDeg(tar_pose_matrix_TRH - TRH_leg.getEndEfectorPose())
+        pub_pose()
+        r.sleep()
 
     while not rospy.is_shutdown():
 
